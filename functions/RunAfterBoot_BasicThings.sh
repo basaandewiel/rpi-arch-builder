@@ -2,7 +2,7 @@
 
 #########################################################################################
 ###
-# Create install script to be run after first boot of PI
+# Create install script to be run AS ROOT after first boot of PI
 ###
 
 function functionBasicThings {
@@ -12,9 +12,9 @@ function functionBasicThings {
   echo "baswi added - set TIMEZONE"
   rm /etc/localtime
   ln -s /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
-# baswi: ntpd is NOT needed; systemd-timesyncd also implements the ntp-client, and
+# baswi: normally ntpd is NOT needed; systemd-timesyncd also implements the ntp-client, and
 # comes pre-installed with systemd
-
+# but for a read only root FS it is different; see read only root FS script
   echo "Basic security settings"
   sed -i.org 's/#Port 22/Port 321/' /etc/ssh/sshd_config
   echo "# baswi - added next lines via script" >> /etc/ssh/sshd_config
@@ -38,17 +38,4 @@ function functionBasicThings {
 #
 sed -i.org 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 
-#modify /etc/fstab to log into RAM- tested on RPI0
-#source: https://wiki.archlinux.org/index.php/Tmpfs
-# Some directories where tmpfs is commonly used are /tmp, /var/lock and /var/run.
-#  Do *NOT* use it on /var/tmp, because that folder is meant for temporary 
-# files that are preserved across reboots.
-#
-# Arch uses a tmpfs /run directory, with /var/run and /var/lock simply 
-# existing as symlinks for compatibility. It is also used for /tmp by the 
-# default systemd setup and does not require an entry in fstab unless a 
-# specific configuration is needed.  
-echo "tmpfs 	/var/log tmpfs defaults,noatime,mode=0755 0 0" >> 
-/etc/fstab
-echo "tmpfs     /var/cache/pacman tmpfs defaults,noatime        0   0"
-}
+
