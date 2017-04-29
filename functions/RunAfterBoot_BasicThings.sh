@@ -4,8 +4,6 @@
 ###
 # Create install script to be run AS ROOT after first boot of PI
 ###
-
-function functionBasicThings {
   echo "Basic settings and installs"
   echo "#########################################################################"
 
@@ -37,5 +35,4 @@ function functionBasicThings {
   echo "PS1='\[\e[1;32m\][\u@\h:\w]\$\[\e[0m\] '" >> /home/baswi/.bashrc
 #
 sed -i.org 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
-
 
