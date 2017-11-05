@@ -1,4 +1,4 @@
-on 170408 I made a fork, to be able to add my own custimisations. 
+Bas on 170408 I made a fork, to be able to add my own custimisations. 
 Note: THis is the first time I work with Github, and I am not an experienced script writer.
 ---
 
