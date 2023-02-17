@@ -1,7 +1,3 @@
-Bas on 170408 I made a fork, to be able to add my own custimisations. 
-Note: THis is the first time I work with Github, and I am not an experienced script writer.
----
-
 #Create an Arch Linux ARM (Raspberry Pi - All versions) microSD Card image.
 ![Raspberry Pi and Arch Linux ARM](/images/rpi_arm_banner.png)
 
