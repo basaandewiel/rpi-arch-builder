@@ -1,12 +1,12 @@
 #
 #	Install script for Radicale - address and calendar server
 #
-read -n1 -r -p "PRECONDITION: pacaur installed; hit any key" key
+read -n1 -r -p "PRECONDITION: yay installed; hit any key" key
 
 #install AUR package radicale
-pacaur -S --noedit --noconfirm radicale
+yay -S --noconfirm radicale
 #install AUR package apache-tools
-pacaur -S --noedit --noconfirm apache-tools
+yay -S  --noconfirm apache-tools
 #
 sudo mkdir /etc/radicale
 read -r -p "Give userid for end user of radicale" userid
