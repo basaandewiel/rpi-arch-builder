@@ -84,7 +84,7 @@ echo "DIY - chown -R http:http *"
 read -p "cp server files, includes db, to /srv/http/myTDX" key
 #
 systemctl start php-fpm
-systemctl enabel php-fpm
+systemctl enable php-fpm
 systemctl start nginx
 systemctl enable nginx
 read -p "open laptop: RPI4:port:test.php" key
