@@ -41,5 +41,10 @@ sed -i.org 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 # restart sshd to make changes effective; NB: no root login via SSH
 systemctl restart sshd
 
-pacman -S vim git
+pacman -S vim git cronie base-devel 
+
+# install yay
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
 
