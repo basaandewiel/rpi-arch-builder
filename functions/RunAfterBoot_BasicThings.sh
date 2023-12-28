@@ -41,5 +41,5 @@ sed -i.org 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 # restart sshd to make changes effective; NB: no root login via SSH
 systemctl restart sshd
 
-pacman -S vim
+pacman -S vim git
 
