@@ -31,6 +31,7 @@
   gpasswd -a baswi video
   gpasswd -a baswi audio
   gpasswd -a baswi power
+  gpasswd -a baswi http # so I can easily edit srv/http/ files
 #  cp /etc/skel/bashrc /home/baswi/.bashrc #231228 not present
 # delete and line with PS1, and change (replace did not work with sed
   sed -i.org '/PS1/d' /home/baswi/.bashrc
