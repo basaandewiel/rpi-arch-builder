@@ -44,8 +44,5 @@ systemctl restart sshd
 
 pacman -S vim git cronie base-devel 
 
-# install yay
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
+
 
