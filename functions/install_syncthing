@@ -1,0 +1,4 @@
+sudo pacman -S --needed syncthing
+sudo systemctl enable syncthing@baswi
+sudo systemctl start syncthing@baswi
+
