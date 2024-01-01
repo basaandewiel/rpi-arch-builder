@@ -34,8 +34,20 @@
   gpasswd -a baswi http # so I can easily edit srv/http/ files
 #  cp /etc/skel/bashrc /home/baswi/.bashrc #231228 not present
 # delete and line with PS1, and change (replace did not work with sed
-  sed -i.org '/PS1/d' /home/baswi/.bashrc
-  echo "PS1='\[\e[1;32m\][\u@\h:\w]\$\[\e[0m\] '" >> /home/baswi/.bashrc
+ cat <<EOF > ~/.bashrc
+#
+# ~/.bashrc
+#
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+alias ls='ls --color=auto'
+alias ll='ls -l'
+export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+# colors generated with LS_COLOR generator; https://geoff.greer.fm/lscolors/
+PS1='\[\e[1;32m\][\u@\h:\w]$\[\e[0m\] '
+export SYSTEMD_LESS=FRXMK
+export TERM=linux
+EOF
 #
 sed -i.org 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 
