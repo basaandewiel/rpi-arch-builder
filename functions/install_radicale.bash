@@ -1,18 +1,17 @@
 #
 #	Install script for Radicale - address and calendar server
 #
-echo "*****191005 DOES NOT WORK TOTALLY- service file contains user radicale, but that user is not created in this script"
 read -n1 -r -p "PRECONDITION: AUR helper YAY installed; hit any key" key
 
 #install AUR package radicale
-yay -S  --noconfirm radicale
+yay -S  --needed --noconfirm radicale
 #install AUR package apache-tools
-yay -S  --noconfirm apache-tools
+yay -S  --needed --noconfirm apache-tools
 #
-# 191012 added, but user radicale already existed ...
-sudo useradd --system --home-dir / --shell /sbin/nologin radicale
+# 240101 removed because user radicale already existed ...
+#sudo useradd --system --home-dir / --shell /sbin/nologin radicale
 #The storage folder must be writable by radicale. 
-sudo mkdir -p /var/lib/radicale/collections && chown -R radicale:radicale /var/lib/radicale/collections
+sudo mkdir -p /var/lib/radicale/collections && sudo chown -R radicale:radicale /var/lib/radicale/collections
 #Security: The storage should not be readable by others.
 sudo chmod -R o= /var/lib/radicale/collections
 
