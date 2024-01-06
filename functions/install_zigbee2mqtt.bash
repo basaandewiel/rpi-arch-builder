@@ -29,13 +29,13 @@ advanced:
   network_key: GENERATE
   legacy_api: false
   legacy_availability_payload: false
-frontedn:
-  port:4002
+frontend:
+  port: 4002
 device_options:
       legacy: false
 EOF
 
-sudo hown -R zigbee2mqtt:zigbee2mqtt /opt/zigbee2mqtt
+sudo chown -R zigbee2mqtt:zigbee2mqtt /opt/zigbee2mqtt
 
 
 #@@@ create service file
