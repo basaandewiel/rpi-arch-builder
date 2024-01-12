@@ -4,6 +4,6 @@ cd ~/scripts/skoda
 # create a venv:
 python3 -m venv .venv
 source .venv/bin/activate
-pip install skodaconnect
-pip install paho-mqtt
+.venv/bin/pip install skodaconnect
+.venv/bin/pip install paho-mqtt
 
