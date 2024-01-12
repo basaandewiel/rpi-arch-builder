@@ -62,7 +62,7 @@ cat <<EOF > /root/.bashrc
 #PS1='\[\e[1;31m\][\u@\h:\w]$\[\e[0m\] '
 #export SYSTEMD_LESS=FRXMK
 #export TERM=linux
-#EOF
+EOF
 #
 
 
@@ -73,6 +73,7 @@ sed -i.org 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 systemctl restart sshd
 
 pacman -S --needed vim git cronie base-devel syncthing
-
+sudo systemctl enable cronie
+sudo systemctl start cronie
 
 
