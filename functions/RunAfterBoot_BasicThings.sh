@@ -16,7 +16,7 @@
 # comes pre-installed with systemd
 # but for a read only root FS it is different; see read only root FS script
   echo "Basic security settings"
-  sed -i.org 's/#Port 22/Port 321/' /etc/ssh/sshd_config
+#  sed -i.org 's/#Port 22/Port 321/' /etc/ssh/sshd_config #240120 just use default port nr 
   echo "# baswi - added next lines via script" >> /etc/ssh/sshd_config
   echo "AllowUsers baswi" >> /etc/ssh/sshd_config
   echo "PermitRootLogin no" >> /etc/ssh/sshd_config
@@ -76,4 +76,8 @@ pacman -S --needed vim git cronie base-devel syncthing
 sudo systemctl enable cronie
 sudo systemctl start cronie
 
+# create swap partition
+swapon --show
+mkswap /dev/sda5
+swapon /dev/sda5
 
