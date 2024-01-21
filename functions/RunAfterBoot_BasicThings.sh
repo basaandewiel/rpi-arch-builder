@@ -51,17 +51,17 @@ EOF
 
 cat <<EOF > /root/.bashrc
 #
-## ~/.bashrc
-##
-## If not running interactively, don't do anything
-#[[ $- != *i* ]] && return
-#alias ls='ls --color=auto'
-#alias ll='ls -l'
-#export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
-## colors generated with LS_COLOR generator; https://geoff.greer.fm/lscolors/
-#PS1='\[\e[1;31m\][\u@\h:\w]$\[\e[0m\] '
-#export SYSTEMD_LESS=FRXMK
-#export TERM=linux
+# ~/.bashrc
+#
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+alias ls='ls --color=auto'
+alias ll='ls -l'
+export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+# colors generated with LS_COLOR generator; https://geoff.greer.fm/lscolors/
+PS1='\[\e[1;31m\][\u@\h:\w]$\[\e[0m\] '
+export SYSTEMD_LESS=FRXMK
+export TERM=linux
 EOF
 #
 
