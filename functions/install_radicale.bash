@@ -68,6 +68,12 @@ ReadWritePaths=/var/lib/radicale
 WantedBy=multi-user.target
 EOF1
 #
+cd /var/lib/
+chown -R radicale:radicale radicale
+
+#create user
+htpasswd -c /etc/radicale/users marieke
+
 #
 # start server at boot
 sudo systemctl enable radicale
