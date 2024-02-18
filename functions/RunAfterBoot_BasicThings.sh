@@ -6,6 +6,7 @@
 ###
   read -r -p "Are you ROOT?" notrelevant
 
+
   echo "Basic settings and installs"
   echo "#########################################################################"
 
@@ -75,6 +76,8 @@ systemctl restart sshd
 pacman -S --needed vim git cronie base-devel syncthing 
 #gnupg needed for creating encrypted tgz
 pacman -S --needed gnupg
+read -r -p "run gpg --full-generate-key #default answers" notrelevant
+
 sudo systemctl enable cronie
 sudo systemctl start cronie
 
