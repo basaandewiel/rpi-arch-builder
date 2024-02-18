@@ -72,7 +72,9 @@ sed -i.org 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 # restart sshd to make changes effective; NB: no root login via SSH
 systemctl restart sshd
 
-pacman -S --needed vim git cronie base-devel syncthing
+pacman -S --needed vim git cronie base-devel syncthing 
+#gnupg needed for creating encrypted tgz
+pacman -S --needed gnupg
 sudo systemctl enable cronie
 sudo systemctl start cronie
 
