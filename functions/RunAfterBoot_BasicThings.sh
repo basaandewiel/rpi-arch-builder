@@ -84,6 +84,40 @@ systemctl enable postfix.service
 systemctl start postfix.service
 pacman -S mailx #mail client
 
+cat <<EOF > /etc/postfix/main.cf
+compatibility_level = 3.9
+queue_directory = /var/spool/postfix
+command_directory = /usr/bin
+daemon_directory = /usr/lib/postfix/bin
+data_directory = /var/lib/postfix
+mail_owner = postfix
+myhostname = localhost
+mydomain = localdomain
+inet_interfaces = $myhostname, localhost
+mydestination = $myhostname, localhost.$mydomain, localhost
+unknown_local_recipient_reject_code = 550
+mynetworks_style = host
+default_transport = error: outside mail is not deliverable
+alias_maps = lmdb:/etc/postfix/aliases
+alias_database = $alias_maps
+debug_peer_level = 2
+debugger_command =
+	 PATH=/bin:/usr/bin:/usr/local/bin:/usr/X11R6/bin
+	 ddd $daemon_directory/$process_name $process_id & sleep 5
+sendmail_path = /usr/bin/sendmail
+newaliases_path = /usr/bin/newaliases
+mailq_path = /usr/bin/mailq
+setgid_group = postdrop
+html_directory = no
+manpage_directory = /usr/share/man
+sample_directory = /etc/postfix
+readme_directory = /usr/share/doc/postfix
+inet_protocols = ipv4
+meta_directory = /etc/postfix
+shlib_directory = /usr/lib/postfix
+EOF
+
+
 sudo systemctl enable cronie
 sudo systemctl start cronie
 
