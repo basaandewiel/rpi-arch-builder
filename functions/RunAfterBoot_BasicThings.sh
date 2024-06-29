@@ -78,6 +78,12 @@ pacman -S --needed vim git cronie base-devel syncthing postfix
 pacman -S --needed gnupg
 read -r -p "run gpg --full-generate-key #default answers" notrelevant
 
+#install mail
+pacman -S postfix #mail server
+systemctl enable postfix.service
+systemctl start postfix.service
+pacman -S mailx #mail client
+
 sudo systemctl enable cronie
 sudo systemctl start cronie
 
